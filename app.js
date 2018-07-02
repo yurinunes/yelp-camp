@@ -16,17 +16,17 @@ var campgroundRoutes    = require("./routes/campgrounds"),
     commentRoutes       = require("./routes/comments"),
     indexRoutes         = require("./routes/index");
     
-    
 
 // can memorize or copy and past the code below app.use
-// mongoose.connect("mongodb://localhost/yelp_camp_v12");
-mongoose.connect("mongodb://yuri:yuri123@ds125021.mlab.com:25021/yuriyelpcamp");
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://yuri:yuri123@ds125021.mlab.com:25021/yuriyelpcamp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash()); //needs to be before passport set up
 // seedDB(); //Seed the databases
+
 
 app.use(require("express-session")({
     secret: "YelpCamp is a great tool",
