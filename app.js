@@ -19,7 +19,8 @@ var campgroundRoutes    = require("./routes/campgrounds"),
     
 
 // can memorize or copy and past the code below app.use
-mongoose.connect("mongodb://localhost/yelp_camp_v12");
+// mongoose.connect("mongodb://localhost/yelp_camp_v12");
+mongoose.connect("mongodb://yuri:yuri123@ds125021.mlab.com:25021/yuriyelpcamp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
